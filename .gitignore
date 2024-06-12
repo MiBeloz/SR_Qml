@@ -1,0 +1,14 @@
+*
+!.gitignore
+!CMakeLists.txt
+!*.h
+!*.hpp
+!*.c
+!*.cpp
+!*.ui
+!*.qml
+!*.qrc
+!*.rc
+!*.ico
+!*.png
+!*.MPF
