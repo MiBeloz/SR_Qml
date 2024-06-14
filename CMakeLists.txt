@@ -22,7 +22,7 @@ set_target_properties(ScorpionResume
         MACOSX_BUNDLE TRUE
 )
 
-set_source_files_properties(qml/Colors.qml
+set_source_files_properties(qml/SR_Colors.qml
     PROPERTIES
         QT_QML_SINGLETON_TYPE TRUE
 )
@@ -32,7 +32,9 @@ qt_add_qml_module(ScorpionResume
     VERSION 1.0
     QML_FILES
         "Main.qml"
-        "qml/Colors.qml"
+        "qml/SR_Colors.qml"
+        "qml/SR_Menu.qml"
+        "qml/SR_MenuBar.qml"
 
     RESOURCES
         "icons/app_icon.ico"
