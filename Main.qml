@@ -21,72 +21,60 @@ ApplicationWindow {
             title: qsTr("File")
 
             Action {
-                text: qsTr("Increase Font")
-                shortcut: StandardKey.ZoomIn
-                //onTriggered: editor.text.font.pixelSize += 1
+                text: qsTr("Open File")
+                shortcut: "Ctrl+O"
+                onTriggered: text === qsTr("Open File") ? text = qsTr("Opened")
+                                                        : text = qsTr("Open File")
             }
             Action {
-                text: qsTr("Decrease Font")
-                shortcut: StandardKey.ZoomOut
-                //onTriggered: editor.text.font.pixelSize -= 1
+                text: qsTr("Close File")
+                shortcut: "Ctrl+W"
+                onTriggered: text === qsTr("Close File") ? text = qsTr("Closed")
+                                                         : text = qsTr("Close File")
             }
-            Action {
-                //text: root.showLineNumbers ? qsTr("Toggle Line Numbers OFF")
-                //                           : qsTr("Toggle Line Numbers ON")
-                shortcut: "Ctrl+L"
-                //onTriggered: root.showLineNumbers = !root.showLineNumbers
-            }
-            Action {
-                //text: root.expandPath ? qsTr("Toggle Short Path")
-                //                      : qsTr("Toggle Expand Path")
-                //enabled: root.currentFilePath
-                //onTriggered: root.expandPath = !root.expandPath
-            }
-            Action {
-                text: qsTr("Reset Filesystem")
-                //enabled: sidebar.currentTabIndex === 1
-                //onTriggered: fileSystemView.rootIndex = undefined
-            }
+            // Action {
+            //     text: qsTr("Increase Font")
+            //     shortcut: StandardKey.ZoomIn
+            //     //onTriggered: editor.text.font.pixelSize += 1
+            // }
+            // Action {
+            //     text: qsTr("Decrease Font")
+            //     shortcut: StandardKey.ZoomOut
+            //     //onTriggered: editor.text.font.pixelSize -= 1
+            // }
+            // Action {
+            //     //text: root.expandPath ? qsTr("Toggle Short Path")
+            //     //                      : qsTr("Toggle Expand Path")
+            //     //enabled: root.currentFilePath
+            //     //onTriggered: root.expandPath = !root.expandPath
+            // }
+            // Action {
+            //     text: qsTr("Reset Filesystem")
+            //     //enabled: sidebar.currentTabIndex === 1
+            //     //onTriggered: fileSystemView.rootIndex = undefined
+            // }
             Action {
                 text: qsTr("Exit")
-                onTriggered: Qt.exit(0)
                 shortcut: StandardKey.Quit
+                onTriggered: Qt.exit(0)
             }
         }
 
         SR_Menu {
-            title: qsTr("Edit")
+            title: qsTr("Help")
 
             Action {
-                text: qsTr("Cut")
-                shortcut: StandardKey.Cut
-                //enabled: editor.text.selectedText.length > 0
-                //onTriggered: editor.text.cut()
-            }
-            Action {
-                text: qsTr("Copy")
-                shortcut: StandardKey.Copy
-                //enabled: editor.text.selectedText.length > 0
-                //onTriggered: editor.text.copy()
-            }
-            Action {
-                text: qsTr("Paste")
-                shortcut: StandardKey.Paste
-                //enabled: editor.text.canPaste
-                //onTriggered: editor.text.paste()
-            }
-            Action {
-                text: qsTr("Select All")
-                shortcut: StandardKey.SelectAll
-                //enabled: editor.text.length > 0
-                //onTriggered: editor.text.selectAll()
-            }
-            Action {
-                text: qsTr("Undo")
-                shortcut: StandardKey.Undo
-                //enabled: editor.text.canUndo
-                //onTriggered: editor.text.undo()
+                text: qsTr("About")
+                onTriggered: {
+                    aboutQtWindow.visible = !aboutQtWindow.visible
+
+                }
             }
         }
+    }
+
+    SR_About {
+        id: aboutQtWindow
+        visible: false
     }
 }

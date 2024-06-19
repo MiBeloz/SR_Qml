@@ -12,6 +12,9 @@ MenuBar {
 
     required property ApplicationWindow dragWindow
     property alias infoText: windowInfo.text
+    property alias minimizeEnabled: minimize.enabled
+    property alias maximizeEnabled: maximize.enabled
+    property alias closeEnabled: close.enabled
 
     // Customization of the top level menus inside the MenuBar
     delegate: MenuBarItem {
@@ -105,7 +108,7 @@ MenuBar {
                 Layout.fillHeight: true
                 Layout.preferredWidth: height
 
-                color: hovered ? SR_Colors.background : "transparent"
+                color: hovered && interactionButton.enabled ? SR_Colors.background : "transparent"
                 HoverHandler {
                     id: hoverHandler
                 }
@@ -124,6 +127,7 @@ MenuBar {
                     color: parent.hovered ? SR_Colors.iconIndicator : SR_Colors.icon
                     height: 2
                     width: parent.height - 14
+                    visible: parent.enabled ? true : false
                 }
             }
 
@@ -137,6 +141,7 @@ MenuBar {
                     border.color: parent.hovered ? SR_Colors.iconIndicator : SR_Colors.icon
                     border.width: 2
                     color: "transparent"
+                    visible: parent.enabled ? true : false
                 }
             }
 
@@ -153,6 +158,7 @@ MenuBar {
                     antialiasing: true
                     transformOrigin: Item.Center
                     color: parent.hovered ? SR_Colors.iconIndicator : SR_Colors.icon
+                    visible: parent.enabled ? true : false
 
                     Rectangle {
                         anchors.centerIn: parent
@@ -161,6 +167,7 @@ MenuBar {
 
                         antialiasing: true
                         color: parent.color
+                        visible: parent.enabled ? true : false
                     }
                 }
             }

@@ -33,11 +33,13 @@ qt_add_qml_module(ScorpionResume
     QML_FILES
         "Main.qml"
         "qml/SR_Colors.qml"
+        "qml/SR_About.qml"
         "qml/SR_Menu.qml"
         "qml/SR_MenuBar.qml"
 
     RESOURCES
         "icons/app_icon.ico"
+        "icons/logo.png"
 
     SOURCES
 
