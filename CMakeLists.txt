@@ -36,6 +36,7 @@ qt_add_qml_module(ScorpionResume
         "qml/SR_About.qml"
         "qml/SR_Menu.qml"
         "qml/SR_MenuBar.qml"
+        "qml/SR_ContactModel.qml"
 
     RESOURCES
         "icons/app_icon.ico"

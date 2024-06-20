@@ -77,4 +77,22 @@ ApplicationWindow {
         id: aboutQtWindow
         visible: false
     }
+
+
+
+    ListView {
+        id: editor
+        width: 180
+        height: 200
+
+        anchors.left: parent.horizontalCenter
+        anchors.top: parent.top
+        anchors.topMargin: 20
+
+        model: SR_ContactModel {}
+        delegate: Text {
+            color: "white"
+            text: name + ": " + number
+        }
+    }
 }
